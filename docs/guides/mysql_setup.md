@@ -28,41 +28,67 @@
    - Host: localhost
    ```
 
-## Database Creation
+## Database Creation Using MySQL Shell
 
-1. **Open MySQL Command Line Client**
-   - Start Menu > MySQL > MySQL Command Line Client
-   - Enter root password when prompted
+1. **Switch to SQL Mode**
+   When you see `MySQL JS >`, type:
+   ```
+   \sql
+   ```
+   You should now see `MySQL SQL >`
 
-2. **Create Database**
+2. **Connect to MySQL Server**
+   ```sql
+   \connect root@localhost
+   ```
+   Enter your root password when prompted
+
+3. **Create Database**
    ```sql
    CREATE DATABASE pebs_management;
    ```
 
-3. **Create User and Grant Privileges**
+4. **Create User and Grant Privileges**
    ```sql
    CREATE USER 'pebs_admin'@'localhost' IDENTIFIED BY 'your_password';
    GRANT ALL PRIVILEGES ON pebs_management.* TO 'pebs_admin'@'localhost';
    FLUSH PRIVILEGES;
    ```
 
-## Testing Connection
-
-1. **Verify Database Creation**
+5. **Verify Database Creation**
    ```sql
    SHOW DATABASES;
    ```
    You should see 'pebs_management' in the list
 
-2. **Test User Access**
+6. **Test User Access**
+   First, exit current session:
    ```sql
-   EXIT;
+   \quit
    ```
-   Then reconnect as pebs_admin:
-   ```
-   mysql -u pebs_admin -p
+   
+   Then from command prompt:
+   ```bash
+   mysqlsh --sql -u pebs_admin -p
    ```
    Enter the password when prompted
+
+## Alternative: Using MySQL Command Line Client
+
+If you prefer using the MySQL Command Line Client instead of MySQL Shell:
+
+1. **Open MySQL Command Line Client**
+   - Start Menu > MySQL > MySQL Command Line Client
+   - Enter root password when prompted
+
+2. All the same commands will work, but you don't need to switch to SQL mode:
+   ```sql
+   CREATE DATABASE pebs_management;
+   CREATE USER 'pebs_admin'@'localhost' IDENTIFIED BY 'your_password';
+   GRANT ALL PRIVILEGES ON pebs_management.* TO 'pebs_admin'@'localhost';
+   FLUSH PRIVILEGES;
+   SHOW DATABASES;
+   ```
 
 ## Environment Variables
 
@@ -106,3 +132,9 @@ After successful installation:
    - Check firewall settings
    - Confirm user credentials
    - Ensure correct port number
+
+4. **MySQL Shell Modes:**
+   - JS Mode (default): `\js`
+   - Python Mode: `\py`
+   - SQL Mode: `\sql`
+   - Always use SQL mode for database commands
