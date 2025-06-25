@@ -126,15 +126,28 @@ graph LR
 ## Immediate TODOs
 1. [✓] Install MySQL Server
 2. [✓] Create database and user
-3. [ ] Install Composer (Next Step)
-4. [ ] Create Laravel project
-5. [ ] Configure development environment
+3. [ ] Install PHP >= 8.1 (Next Step)
+4. [ ] Install Composer
+5. [ ] Create Laravel project
+6. [ ] Configure development environment
 
 ## Recent Achievements
 1. MySQL Server installed and configured
 2. Database 'pebs_management' created
 3. Database user 'pebs_admin' setup with privileges
 4. Access and permissions verified
+5. Added detailed PHP installation guide
+
+## Current Focus
+1. PHP Installation Requirements:
+   - PHP 8.1 or higher
+   - Required extensions:
+     - curl
+     - fileinfo
+     - mbstring
+     - openssl
+     - pdo_mysql
+   - Proper php.ini configuration
 
 ## Resource Links
 - [Laravel Documentation](https://laravel.com/docs)
